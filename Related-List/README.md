@@ -13,5 +13,9 @@ Replacement of the basic query with a publicly visible standard set controller. 
 
 At this point, things may look more complicated, but using the standard set controller makes many other things easier in the steps ahead.
 
+##Step 3
+An example of where the ssc makes life easier. In this step we've added pagination links with just a few changes to our Visualforce page, no Apex changes required!
+
+
 
 More to come soon!

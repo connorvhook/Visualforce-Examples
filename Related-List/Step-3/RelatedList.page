@@ -1,0 +1,41 @@
+<!-- Using the Contact standard controller so that we can put the page in the layout
+		and know which contact is being worked with.
+
+	Using the RelatedListExtension controller to load our filtered opportunities -->
+
+<apex:page standardController="Contact" extensions="RelatedListExtension">
+    <apex:pageBlock >
+        
+        <!-- This table loops over the records loaded by the standard set
+            controller, with up to 5 records as determined in the controller -->
+        <apex:pageBlockTable value="{!RelatedOpportunities}" var="o">
+            
+            <!-- Make this first column a link to the opportunity record using the 
+				ID in the URL. Use target="_top" to make sure the new page
+				opens in the window, not in the small Visualforce iframe -->
+            <apex:column headerValue="Opportunity Name">
+                <apex:outputLink value="/{!o.Id}" target="_top">
+                    <apex:outputText value="{!o.Name}"/>
+            	</apex:outputLink>
+            </apex:column>
+            
+            <!-- Simple output for the other columns -->
+            <apex:column value="{!o.CloseDate}"/>
+            <apex:column value="{!o.StageName}"/>
+        </apex:pageBlockTable>
+
+        <!-- NEW CODE
+            Some very basic pagination links. Here we're using methods available
+            on the standard set controller directly from the page. Next() and Previous()
+            are actions which move through the available pages, GetHasNext() and 
+            GetHasPrevious() and methods that tell us if there's a page available in
+            the respective direction.
+            -->
+        <apex:form>
+            <apex:commandLink action="{!ssc.Previous}" value="Previous" rendered="{!ssc.HasPrevious}"/>
+            &nbsp;
+            <apex:commandLink action="{!ssc.Next}" value="Next" rendered="{!ssc.HasNext}"/>
+        </apex:form>
+        
+    </apex:pageBlock>
+</apex:page>
