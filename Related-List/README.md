@@ -6,10 +6,10 @@ This is an example of building up a Visualforce page that works like a related l
 Additions to the code are indicated by "NEW CODE" in the corresponding comments.
 
 ##Step 1
-A super simple, functionally limited page that simply displays a maximum of five contacts related to an account, filtered with a basic SOQL where clause.
+A super simple, functionally limited page that simply displays a maximum of five opportunities, where the contact being worked with is the primary contact.
 
 ##Step 2
-Replacement of the basic query with a publicly visible standard set controller. It's a public variable so that it's methods can be accessed directly from the Visualforce page. Although `GetRecords()` is visible, it returns a list of SObject instances, so we use a controller method to cast (cast means to treat one object type as another) that list into a list of contacts.
+Replacement of the basic query with a publicly visible standard set controller. It's a public variable so that it's methods can be accessed directly from the Visualforce page. Although `GetRecords()` is visible, it returns a list of SObject instances, so we use a controller method to cast (cast means to treat one object type as another) that list into a list of opportunities.
 
 At this point, things may look more complicated, but using the standard set controller makes many other things easier in the steps ahead.
 

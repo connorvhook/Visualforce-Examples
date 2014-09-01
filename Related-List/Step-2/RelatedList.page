@@ -1,29 +1,29 @@
-<!-- Using the Account standard controller so that we can put the page in the layout
-		and know which account is being worked with.
+<!-- Using the Contact standard controller so that we can put the page in the layout
+		and know which contact is being worked with.
 
-	Using the RelatedListExtension controller to load our filtered contacts -->
+	Using the RelatedListExtension controller to load our filtered opportunities -->
 
-<apex:page standardController="Account" extensions="RelatedListExtension">
-    <apex:pageBlock>
-        
-        <!-- NEW CODE
-            This table loops over the records loaded by the standard set
-            controller, with up to 5 records as determined in the controller -->
-        <apex:pageBlockTable value="{!RelatedContacts}" var="c">
-            
-            <!-- Make this first column a link to the contact record using the 
+<apex:page standardController="Contact" extensions="RelatedListExtension">
+	<apex:pageBlock >
+		
+		<!-- NEW COMMENT
+			This table loops over the records loaded by the standard set
+			controller, with up to 5 records as determined in the controller -->
+		<apex:pageBlockTable value="{!RelatedOpportunities}" var="o">
+			
+			<!-- Make this first column a link to the contact record using the 
 				ID in the URL. Use target="_top" to make sure the new page
 				opens in the window, not in the small Visualforce iframe -->
-            <apex:column headerValue="First Name">
-                <apex:outputLink value="/{!c.Id}" target="_top">
-                    <apex:outputText value="{!c.FirstName}"/>
-            	</apex:outputLink>
-            </apex:column>
-            
-            <!-- Simple output for the other columns -->
-            <apex:column value="{!c.LastName}"/>
-            <apex:column value="{!c.Email}"/>
-        </apex:pageBlockTable>
-        
-    </apex:pageBlock>
+			<apex:column headerValue="Opportunity Name">
+				<apex:outputLink value="/{!o.Id}" target="_top">
+					<apex:outputText value="{!o.Name}"/>
+				</apex:outputLink>
+			</apex:column>
+			
+			<!-- Simple output for the other columns -->
+			<apex:column value="{!o.CloseDate}"/>
+			<apex:column value="{!o.StageName}"/>
+		</apex:pageBlockTable>
+		
+	</apex:pageBlock>
 </apex:page>
