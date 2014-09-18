@@ -11,7 +11,7 @@
 			controller, with up to 5 records as determined in the controller -->
 		<apex:pageBlockTable value="{!RelatedOpportunities}" var="o">
 			
-			<!-- Make this first column a link to the contact record using the 
+			<!-- Make this first column a link to the opportunity record using the 
 				ID in the URL. Use target="_top" to make sure the new page
 				opens in the window, not in the small Visualforce iframe -->
 			<apex:column headerValue="Opportunity Name">
