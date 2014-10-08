@@ -11,7 +11,7 @@
 			var self = this;
 
 			self.accountId = '{!Account.Id}';
-    		self.accountName =  '{!Account.Name}';
+    			self.accountName =  '{!Account.Name}';
 			self.selected = ko.observable();
 
 			self.contacts = ko.observableArray();
